@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<style>
+    .button{
+    text-align: center;
+    padding-top: 300px;
+}
+body{
+    background-image: url('/static/images/bg-pink.jpg');
+    background-size: cover;
+    }
+    h1 {
+  position: relative;
+  font-family: "Raleway", sans-serif;
+  font-weight: 300;
+  font-size: 40px;
+  color: #080808;
+  text-align: center;
+  padding-top: 50px;
+}
+
+
+
+
+</style>
+<h1 style="font">TOTO TODO</h1>
+<div class="button">
+    <a href='register'>
+<button type="button" class="btn btn-primary btn-lg">Register</button></a>
+    <a href="login">
+<button type="button" class="btn btn-secondary btn-lg">Login</button></a>
+</div>
+
+{% endblock %}

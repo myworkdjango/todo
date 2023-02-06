@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<style>
+</style>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="banner">
+                <div class="banner-text">
+                    <h2>TODO</h2>
+                </div>
+                <button class="button" style="color:#ffffff;padding:10px;background-color:blue;display:inline-block;width:100px;margin:15px;"><a href="{% url 'logout' %}">Logout</a></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Add Task</h4>
+
+                 <form action="{% url 'task_view' %}" method="post" class="p-3 shadow">
+    {% csrf_token %}
+     <div class="form-group">
+    <input type="text"  class="form-control" name="name" placeholder="Name of the task"><br>
+     </div>
+     <div class="form-group">
+    <input type="text"  class="form-control" name="priority" placeholder="Your priority">
+     </div><div class="form-group">
+    <input type="date"  class="form-control" name="date" placeholder="date">
+     </div>
+     <div class="form-group">
+    <input type="submit" class="btn btn-success">
+    </div>
+    </form>
+
+
+            </div>
+            <div class="col-md-6">
+                <h4>Task Lists</h4>
+                {% for i in objs %}
+
+                <div class="shadow card">
+                <div class="card-body"><a href="detail/{{i.id}}">
+                    <h5 class="card-title">{{i.name}}</h5>
+                    <p><b>{{i.priority}}</b></p>
+                     <p><b>{{i.date}}</b></p>
+
+                    <a class="btn btn-danger" href="delete/{{i.id}}">Delete</a>
+                    <a class="btn btn-success" href="update/{{i.id}}">update</a>
+                    </a>
+                </div>
+                </div>
+                <br>
+                {% endfor %}
+            </div>
+
+        </div>
+{% endblock %}
